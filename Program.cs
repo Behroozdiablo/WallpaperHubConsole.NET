@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Linq;
 using HtmlAgilityPack;
 using System.Net;
@@ -153,6 +154,7 @@ namespace WallpaperHubConsole
                     {
                         //A var that is set to the innter text of the the h1 that was found in the titleValue var.
                         fileName = titleValue.InnerText + ".jpg";
+                        fileName = Regex.Replace(fileName, @"[\?:*|\\/]|&#x27;|&quot;", "");
                     }
 
                 }
